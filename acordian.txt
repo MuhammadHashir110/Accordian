@@ -1,0 +1,47 @@
+import React, { useState } from "react";
+
+
+import "./styles.css";
+
+function App() {
+  // State to show/hide accordion
+  const [show, setShow] = useState(false);
+  const handleOpen = () => {
+    setShow(!show); // Toggle accordion
+  };
+
+  return (
+    <div className="app">
+      <div className="accordian">
+        <div className="accordian-header" onClick={handleOpen}>
+          <div>What is your Name?</div>
+          <div className="sign">{show ? '-' : '+'}</div>
+        </div>
+        {show && (
+          <div className="accordian-body">
+            My name is Muhammad Hashir and I live in Karachi
+          </div>
+        )}
+        <div className="accordian-header" onClick={handleOpen}>
+          <div>What is your Education?</div>
+          <div className="sign">{show ? '-' : '+'}</div>
+        </div>
+        {show && (
+          <div className="accordian-body">
+            I studied in Computer Engineering and currently study Mern Stack
+          </div>
+        )}
+        <div className="accordian-header" onClick={handleOpen}>
+          <div>What is your Hobby?</div>
+          <div className="sign">{show ? '-' : '+'}</div>
+        </div>
+        {show && (
+          <div className="accordian-body">
+            I love Computer games and coding
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+export default App;

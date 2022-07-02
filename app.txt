@@ -1,0 +1,71 @@
+import './App.css';
+import React, {useState} from 'react';
+import InputText from './Components/Navbar/InputText';
+function App() {
+  const [inputValue,setinputValue]=useState({
+    firstName:"",
+    lastName:"",
+    Email:"",
+    Password:""
+  });
+  const handleInput=(e)=>{
+    if(e.target.name==="fname"){
+     setinputValue({...inputValue,firstName:e.target.value});
+    }else if(e.target.name==="lname"){
+      setinputValue({...inputValue,lastName:e.target.value});
+    }else if(e.target.name==="email"){
+      setinputValue({...inputValue,Email:e.target.value});
+    }else if(e.target.name==="password"){
+      setinputValue({...inputValue,Password:e.target.value});
+    }
+  };
+  return (
+   <div className="App" style={{backgroundColor:"blueviolet" ,color:"white",border:"2px solid Orange",margin:"100px"}}>
+    <label >
+    First Name:
+    <InputText
+     inputType="text"
+     value={inputValue.firstName}
+     changeinputValue={handleInput}
+     name="fname"
+     />
+  </label>
+  <br></br>
+  <label>
+    Last Name:
+    <InputText
+     inputType="text"
+     value={inputValue.LastName}
+     changeinputValue={handleInput}
+     name="lname"
+     />
+  </label>
+  <br></br>
+  <label>
+    Email:
+    <InputText
+     inputType="text"
+     value={inputValue.Email}
+     changeinputValue={handleInput}
+     name="email"
+     />
+  </label>
+  <br></br>
+  <label>
+    Password:
+    <InputText
+     inputType="text"
+     value={inputValue.Password}
+     changeinputValue={handleInput}
+     name="password"
+     />
+  </label>
+  <br></br>
+  <button style={{border:"2px solid Tomato",backgroundcolor:"white",color:"blueviolet",margin:"30px"}}>Submit</button>
+  <br></br>
+
+
+   </div>
+  );
+}
+export default App;
